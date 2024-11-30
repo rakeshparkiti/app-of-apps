@@ -1,7 +1,7 @@
 ---
 key:
   clusters:
-    - partnumber: 0
+    - partnumber: 00
       chart: bitnami/nginx
       version: 18.2.6
       namespace: 00-app0
