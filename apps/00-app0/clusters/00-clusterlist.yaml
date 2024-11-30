@@ -1,6 +1,6 @@
 key:
   clusters:
-    partnumber: 00
+  - partnumber: 00
     chart: nginx/nginx-ingress
     version: 1.4.1
     namespace: 00-app0
