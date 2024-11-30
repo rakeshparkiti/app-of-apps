@@ -1,0 +1,23 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 01-app1-master
+  namespace: argocd
+  # finalizers:
+  #   - resources-finalizer.argocd.argoproj.io
+  labels:
+    name: 01-app1-master
+spec:
+  destination:
+    namespace: argocd
+    name: in-cluster
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  source:
+    path: apps/01-app1/applicationset
+    repoURL: https://github.com/rakeshparkiti/app-of-apps.git
+    targetRevision: main

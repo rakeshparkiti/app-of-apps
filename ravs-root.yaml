@@ -1,0 +1,24 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ravs-root
+  namespace: argocd
+  # finalizers:
+  #   - resources-finalizer.argocd.argoproj.io
+  labels:
+    name: ravs-root
+spec:
+  kustomizeBuildOptions: --enable-helm
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  source:
+    repoURL: https://github.com/rakeshparkiti/app-of-apps.git
+    path: templates
+    targetRevision: main
+  destination:
+    namespace: argocd
+    name: in-cluster

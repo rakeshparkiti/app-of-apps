@@ -1,0 +1,39 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: 01-appset01
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions:
+    - missingkey=error
+  generators:
+    - matrix:
+        generators:
+          - git:
+              repoURL: https://github.com/rakeshparkiti/app-of-apps.git
+              revision: main
+              files:
+                - path: apps/01-app1/clusters/01-clusterlist.yaml
+          - list:
+              elements: []
+              elementsYaml: "{{ .key.clusters | Yaml }}"
+  template:
+    metadata:
+      name: "{{.partnumber}}-app0"
+    spec:
+      project: default
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+      source:
+        chart: "{{.chart}}"
+        repoURL: "{{.repoURL}}"
+        targetRevision: "{{.version}}"
+      destination:
+        name: "{{.k8s}}"
+        namespace: "{{.namespace}}"
