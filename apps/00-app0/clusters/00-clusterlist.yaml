@@ -2,8 +2,8 @@
 key:
   clusters:
     - partnumber: 00
-      chart: bitnami/nginx
+      chart: bitnamicharts/nginx
       version: 18.2.6
       namespace: 00-app0
       k8s: in-cluster
-      repoURL: https://charts.bitnami.com/bitnami
+      repoURL: registry-1.docker.io
