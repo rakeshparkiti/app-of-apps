@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: 00-appset0
+  name: appset0
   namespace: argocd
 spec:
   goTemplate: true
@@ -21,7 +21,7 @@ spec:
               elementsYaml: "{{ .key.clusters | toYaml }}"
   template:
     metadata:
-      name: "{{.partnumber}}-app0"
+      name: "app0-{{.partnumber}}"
     spec:
       project: default
       syncPolicy:

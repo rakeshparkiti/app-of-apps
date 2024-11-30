@@ -2,12 +2,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: 00-app0-master
+  name: app0-master
   namespace: argocd
   # finalizers:
   #   - resources-finalizer.argocd.argoproj.io
   labels:
-    name: 00-app0-master
+    name: app0-master
 spec:
   destination:
     namespace: argocd
