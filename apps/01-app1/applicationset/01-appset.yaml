@@ -18,7 +18,7 @@ spec:
                 - path: apps/01-app1/clusters/01-clusterlist.yaml
           - list:
               elements: []
-              elementsYaml: "{{ .key.clusters | Yaml }}"
+              elementsYaml: "{{ .key.clusters | toYaml }}"
   template:
     metadata:
       name: "{{.partnumber}}-app0"
