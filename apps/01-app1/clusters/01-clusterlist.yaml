@@ -1,9 +1,9 @@
+---
 key:
   clusters:
-    partnumber: 01
-    chart: nginx/nginx-ingress
-    version: 1.4.1
-    namespace: 01-app1
-    k8s: in-cluster
-    repoURL: https://charts.bitnami.com/bitnami
-    
+    - partnumber: 01
+      chart: bitnami/nginx
+      version: 18.2.6
+      namespace: 01-app1
+      k8s: in-cluster
+      repoURL: https://charts.bitnami.com/bitnami
