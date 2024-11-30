@@ -21,7 +21,7 @@ spec:
               elementsYaml: "{{ .key.clusters | toYaml }}"
   template:
     metadata:
-      name: "{{.partnumber}}-app0"
+      name: "{{.partnumber}}-app1"
     spec:
       project: default
       syncPolicy:
