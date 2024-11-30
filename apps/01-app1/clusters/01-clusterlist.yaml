@@ -2,7 +2,7 @@
 key:
   clusters:
     - partnumber: 01
-      chart: bitnami/nginx
+      chart: nginx
       version: 18.2.6
       namespace: 01-app1
       k8s: in-cluster
